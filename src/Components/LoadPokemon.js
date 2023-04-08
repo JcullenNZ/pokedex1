@@ -69,7 +69,7 @@ function RenderPokemons() {
     console.log(urlsArray);
     //for(let i = 0; i < urlsArray; i++){
     return (<MakeCard />);
-    PokeCard("https://pokeapi.co/api/v2/pokemon/1/",document)
+    PokeCard("https://pokeapi.co/api/v2/pokemon/",document)
     //PokeCard("https://pokeapi.co/api/v2/pokemon/1/")
 
 

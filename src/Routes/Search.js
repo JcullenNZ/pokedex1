@@ -23,3 +23,22 @@ function getPokemon(pokemon) {
             document.querySelector("#type").innerText = ""
         })
 }
+
+function Search() {
+    return (
+        <>
+            <input type="text"/>
+            <button onClick="getPokemon(document.querySelector('input').value)">Submit</button>
+
+            <p>Request status: <span id="message"></span></p>
+            <div>
+                <img width="96" height="96"/>
+                <p>Number: <span id="id"></span></p>
+                <p>Name: <span id="name"></span></p>
+                <p>Type: <span id="type"></span></p>
+            </div>
+        </>
+    )
+}
+
+export default Search
