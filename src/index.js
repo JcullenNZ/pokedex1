@@ -4,18 +4,16 @@ import { RouterProvider, createHashRouter } from "react-router-dom"
 
 import './index.css';
 
-import App from "./App";
 import Pokedex from "./Routes/Pokedex";
 import Home from "./Routes/Home";
 import About from "./Routes/About";
 import Search from "./Routes/Search";
-import Content from "./Components/Content";
-import Header from "./Components/Header";
+import Root from "./Components/Root";
 
 const router = createHashRouter([
     {
         path: "/",
-        element: <Header />,
+        element: <Root />,
         children: [
             {
                 path: "/",
@@ -43,5 +41,3 @@ root.render(
       <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-//<RenderPokemons />

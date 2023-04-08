@@ -1,19 +1,24 @@
 import React from "react";
+import "../index.css";
+import { Link, Outlet } from "react-router-dom";
+
 
 function Root(){
     return(
-        <div>
+        <>
             <nav className="navbar background">
                 <ul className="nav-list">
                     <div className="logo">
                         <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQObA0J6qLocUawBowplxLq7x-ED-1A1RcgVOe6Y1e0URBPPZzcGWKWDduNQqGMUNpXd9o&usqp=CAU"/>
                     </div>
-                    <li><a href="#pokedex">Pokedex</a></li>
-                    <li><a href="#search">Find a pokemon</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/pokedex">Pokedex</Link></li>
+                    <li><Link to="/search">Find a pokemon</Link></li>
+                    <li><Link to="/about">About</Link></li>
                 </ul>
             </nav>
-        </div>
+            <Outlet />
+        </>
     )
 }
 
