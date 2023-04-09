@@ -17,19 +17,11 @@ import MakeCard from "./MakeCard";
 
 }*/
 
-function RenderPokemons() {
-    /*let pokemons = new Array(20);
-    pokemons.push(0);
-    pokemons = GetPokemon();
-    pokemons.then(function (result){
-        let array = result.results;
-        return array;
-    })
-        .then()*/
-
+function LoadPokemon() {
     const [state, setState] = useState('');
     const [arrayOfURLS, setArray] = useState('');
     const [error, setError] = useState(false);
+    //console.log("bbefors")
 
     useEffect(()=> {
         setState('loading');
@@ -38,7 +30,6 @@ function RenderPokemons() {
                 if (!response.ok) throw new Error("Response was not OK!")
                 return response.json();
             }).then(response => {
-            console.log(response);
             let pokemonsArray = '';
             for (let i = 0; i < response.results.length; i++) {
 
@@ -65,11 +56,17 @@ function RenderPokemons() {
             </h1>
         );
     }
+    if (state === 'loading') {
+        return <h1>Loading...</h1>
+    }
+    //return
     const urlsArray = arrayOfURLS.split(", ")
+    //console.log("Should Happen once followed by all the URLs!")
     console.log(urlsArray);
+    return urlsArray;
     //for(let i = 0; i < urlsArray; i++){
-    return (<MakeCard />);
-    PokeCard("https://pokeapi.co/api/v2/pokemon/",document)
+    //return (<MakeCard />);
+    //PokeCard("https://pokeapi.co/api/v2/pokemon/",document)
     //PokeCard("https://pokeapi.co/api/v2/pokemon/1/")
 
 
@@ -82,4 +79,4 @@ function RenderPokemons() {
 
 
 }
-export default RenderPokemons;
+export default LoadPokemon;

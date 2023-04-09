@@ -1,3 +1,6 @@
+import LoadPokemon from "../Components/LoadPokemon";
+import loadPokemon from "../Components/LoadPokemon";
+
 function getPokemon(pokemon) {
     if (pokemon === "") return
 
@@ -25,10 +28,12 @@ function getPokemon(pokemon) {
 }
 
 function Search() {
+    let arrayOf20Pokemons = LoadPokemon();
+    console.log("array of 20 pokemons + " + arrayOf20Pokemons)
     return (
         <>
             <input type="text"/>
-            <button onClick="getPokemon(document.querySelector('input').value)">Submit</button>
+            {/*<button onClick="getPokemon(document.querySelector('input').value)">Submit</button>*/}
 
             <p>Request status: <span id="message"></span></p>
             <div>
