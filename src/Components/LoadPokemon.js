@@ -1,21 +1,4 @@
 import {useEffect, useState} from "react";
-import PokeCard from "./PokeCard";
-import MakeCard from "./MakeCard";
-
-
-/*function GetPokemon() {
-    console.log("hello")
-    return fetch("https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
-        .then(response => {
-            if (!response.ok) throw new Error("Response was not OK!")
-            return response.json();
-        })
-        .then(response => {
-            console.log(response.results);
-            return response.results;
-        })
-
-}*/
 
 function LoadPokemon() {
     const [state, setState] = useState('');
@@ -60,23 +43,11 @@ function LoadPokemon() {
         return <h1>Loading...</h1>
     }
     //return
+    console.log(arrayOfURLS);
     const urlsArray = arrayOfURLS.split(", ")
     //console.log("Should Happen once followed by all the URLs!")
     console.log(urlsArray);
     return urlsArray;
-    //for(let i = 0; i < urlsArray; i++){
-    //return (<MakeCard />);
-    //PokeCard("https://pokeapi.co/api/v2/pokemon/",document)
-    //PokeCard("https://pokeapi.co/api/v2/pokemon/1/")
-
-
-
-
-        /*return{
-            //<!-- {state === 'loading' ? (<h1>Loading</h1>) : (arrayOfURLS)} -->
-        }*/
-    //}
-
 
 }
 export default LoadPokemon;

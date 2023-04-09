@@ -1,31 +1,38 @@
-function PokeCard(pokemon, document){
+import {useState} from "react";
+import PokeCardSingular from "./PokeCardSingular";
 
-        if (pokemon === "") return
+function PokeCard(pokemonURL){
+    const [img, setImgSrc] = useState('');
+    const [id, setId] = useState('');
+    const [name, setName] = useState('');
+    const [type, setType] = useState('');
+    const [error, setError] = useState(false);
 
-        fetch(pokemon)
+    if (pokemonURL === "") return
+
+    fetch(pokemonURL)
         .then(response => {
-        if (!response.ok) throw new Error("Response was not OK!")
-        document.querySelector("#message").innerText = "Success!"
-        return response.json()
+        //if (!response.ok) throw new Error("Response was not OK!")
+            console.log(response);
+            return response.json();
     })
         .then(pkmn => {
-        document.querySelector("img").src = pkmn.sprites.front_default
-        document.querySelector("#id").innerText = pkmn.id
-        document.querySelector("#name").innerText = pkmn.name
-        const primaryType = pkmn.types[0].type.name
-        const secondaryType = pkmn.types[1]?.type.name
-        document.querySelector("#type").innerText = secondaryType ? `${primaryType}/${secondaryType}` : primaryType
+            setImgSrc(pkmn.sprites.front_default);
+            setId(pkmn.id);
+            setName(pkmn.name);
+            setType(pkmn.type);
     })
         .catch(err => {
-        document.querySelector("#message").innerText = err
-        document.querySelector("#id").innerText = ""
-        document.querySelector("#name").innerText = ""
-        document.querySelector("img").src = ""
-        document.querySelector("#type").innerText = ""
+            console.error('Error', err);
+            //setState('error');
+            setError(err);
     })
+    return(
+        <PokeCardSingular imgSrc ={img} number = {id} name = {name} type = {type}/>
+    )
 }
 
 
 
 export default PokeCard;
-//
+
