@@ -1,4 +1,4 @@
-function MakeCard(){
+function MakeCard(props){
     return (
         <div>
             <img width="96" height="96" />

@@ -4,7 +4,7 @@ function LoadPokemon() {
     const [state, setState] = useState('');
     const [arrayOfURLS, setArray] = useState('');
     const [error, setError] = useState(false);
-    //console.log("bbefors")
+
 
     useEffect(()=> {
         setState('loading');
