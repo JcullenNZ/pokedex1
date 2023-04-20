@@ -8,7 +8,7 @@ import Pokedex from "./Routes/Pokedex";
 import Home from "./Routes/Home";
 import About from "./Routes/About";
 import Root from "./Components/Root";
-import NewSearch from "./Routes/NewSearch";
+import Search from "./Routes/Search";
 
 const router = createHashRouter([
     {
@@ -29,7 +29,7 @@ const router = createHashRouter([
             },
             {
                 path: "/search",
-                element: <NewSearch />
+                element: <Search />
             }
         ],
     },
