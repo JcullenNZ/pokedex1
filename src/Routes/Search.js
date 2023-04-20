@@ -1,3 +1,6 @@
+import LoadPokemon from "../Components/LoadPokemon";
+import PokeCard from "../Components/PokeCard";
+
 function getPokemon(pokemon) {
     if (pokemon === "") return
 
@@ -25,20 +28,33 @@ function getPokemon(pokemon) {
 }
 
 function Search() {
-    return (
-        <>
-            <input type="text"/>
-            <button onClick="getPokemon(document.querySelector('input').value)">Submit</button>
+    let arrayOf20PokemonsURLs = LoadPokemon();
+    //console.log(arrayOf20PokemonsURLs[0]);
 
-            <p>Request status: <span id="message"></span></p>
-            <div>
-                <img width="96" height="96"/>
-                <p>Number: <span id="id"></span></p>
-                <p>Name: <span id="name"></span></p>
-                <p>Type: <span id="type"></span></p>
-            </div>
-        </>
-    )
+    let arrayOf20PokemonCards = [];
+    for(let i = 0; i < 20; i++){
+        arrayOf20PokemonCards.push(
+            PokeCard(arrayOf20PokemonsURLs[i])
+        );
+    }
+    console.log(arrayOf20PokemonCards)
+
+    return (
+        <table>
+            <tr>
+                {arrayOf20PokemonCards.slice(0,5)}
+            </tr>
+            <tr>
+                {arrayOf20PokemonCards.slice(5,10)}
+            </tr>
+            <tr>
+                {arrayOf20PokemonCards.slice(10,15)}
+            </tr>
+            <tr>
+                {arrayOf20PokemonCards.slice(15,20)}
+            </tr>
+        </table>
+    );
 }
 
 export default Search
