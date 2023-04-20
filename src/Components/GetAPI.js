@@ -17,9 +17,17 @@ async function GetAPI(props) {
                 name : pokemon.name,
                 id : pokemon.id,
                 src : pokemon.sprites.front_default,
-                abilities: pokemon.abilities
+                abilities: pokemon.abilities,
+                moves: pokemon.moves,
+                types: pokemon.types,
+                weight: pokemon.weight,
+                stats: pokemon.stats,
+                official_artwork: pokemon.official_artwork
             })
     }
+
+
+
     return pokeObjArray;
 }
 

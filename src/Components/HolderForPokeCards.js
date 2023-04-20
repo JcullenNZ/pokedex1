@@ -13,7 +13,9 @@ function HolderForPokeCards(props) {
 
     return (
         <div>
-            {array}
+            <div className="listOfPokemon">{array}</div>
+            <div className="pokemonDetail"></div>
+
         </div>
     )
 }
