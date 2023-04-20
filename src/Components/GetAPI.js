@@ -1,7 +1,7 @@
 async function GetAPI(props) {
     let returningResponse;
     let newArray = [];
-    let newNewArray = [];
+    let pokeObjArray = [];
 
     returningResponse = await fetch(props)
     let v = await returningResponse.json()
@@ -12,13 +12,15 @@ async function GetAPI(props) {
 
     for (const pokemonURL of newArray) {
         let pokemon = await (await fetch(pokemonURL)).json()
-        newNewArray.push(
+        pokeObjArray.push(
             {
                 name : pokemon.name,
-                src : pokemon.sprites.front_default
+                id : pokemon.id,
+                src : pokemon.sprites.front_default,
+                abilities: pokemon.abilities
             })
     }
-    return newNewArray;
+    return pokeObjArray;
 }
 
 export default GetAPI;
