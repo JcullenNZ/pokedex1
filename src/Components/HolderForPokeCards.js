@@ -6,7 +6,7 @@ function HolderForPokeCards(props) {
     if(props === undefined)
         return;
 
-    console.log(props)
+    //console.log(props)
     props.props.forEach((index) => {
         array.push(PokeCardSequel(index))
     })
