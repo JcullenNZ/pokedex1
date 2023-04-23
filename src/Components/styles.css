@@ -1,7 +1,27 @@
-.listOfPokemon {
-    display: flex;
-}
 
 .pokemonDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    background-color: bisque;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.pokemonContainer {
+display:grid;
+    grid-template-columns: 70% 30%;
+
+}
+
+.pokemonGrid {
+    display: grid;
+    max-width: 70%;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-row: repeat(4,1fr);
+}
+
+.buttonbar {
     display: flex;
 }

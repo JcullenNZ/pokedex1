@@ -15,10 +15,10 @@ function HolderForPokeCards({props, onClick}) {
     //console.log(onClick)
 
     return (
-        <div>
-            <div className="listOfPokemon">{array}</div>
-            {/*<div className="pokemonDetail">{array[0]}</div>*/}
-        </div>
+            <>
+                {array}
+            </>
+
     )
 }
 

@@ -3,6 +3,7 @@ import HolderForPokeCards from "../Components/HolderForPokeCards";
 import {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
 import PokemonDetails from "../Components/PokemonDetails";
+import "../Components/styles.css"
 
 export default function Pokedex() {
     const [variable, setVariable] = useState([])
@@ -42,10 +43,16 @@ export default function Pokedex() {
         <div>
             <h1>WELCOME TRAINER!</h1>
             <p>Here you will be able to look at all the pokemon!</p>
-            <HolderForPokeCards props = {variable} onClick={getIdClicked} />
-            <PokemonDetails props = {focusedPokemon}/>
-            <button id = "button" onClick={()=>{setA(a>1 ? a-1 : 0)}}>ButtonPrevious</button>
-            <button id = "button3" onClick={()=>{setA(a+1)}}>ButtonNext</button>
+            <div className="pokemonContainer">
+                <div className="pokemonGrid">
+                    <HolderForPokeCards props = {variable} onClick={getIdClicked} />
+                    <div className="buttonbar">
+                    <button  onClick={()=>{setA(a>1 ? a-1 : 0)}}>ButtonPrevious</button>
+                    <button  onClick={()=>{setA(a+1)}}>ButtonNext</button>
+                    </div>
+                </div>
+                    <PokemonDetails props = {focusedPokemon}/>
+            </div>
         </div>
     )
 }
