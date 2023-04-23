@@ -10,7 +10,7 @@ export default function Pokedex() {
     const [focusedPokemon, setFocusedPokemon] = useState("")
 
     function getIdClicked(props){
-        //setFocusedPokemon(props.id)
+        setFocusedPokemon(props)
         console.log(props)
     }
 
@@ -43,7 +43,7 @@ export default function Pokedex() {
             <h1>WELCOME TRAINER!</h1>
             <p>Here you will be able to look at all the pokemon!</p>
             <HolderForPokeCards props = {variable} onClick={getIdClicked} />
-            <PokemonDetails props = {variable}/>
+            <PokemonDetails props = {focusedPokemon}/>
             <button id = "button" onClick={()=>{setA(a>1 ? a-1 : 0)}}>ButtonPrevious</button>
             <button id = "button3" onClick={()=>{setA(a+1)}}>ButtonNext</button>
         </div>

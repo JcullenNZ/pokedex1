@@ -1,6 +1,6 @@
 import "./styles.css"
 
-function PokemonDetails({props, id}){
+function PokemonDetails({props}){
     return (
         <div className = "pokemonDetail">
             <img src = {props.src}/>
