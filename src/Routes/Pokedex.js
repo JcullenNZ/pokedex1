@@ -2,10 +2,17 @@ import GetAPI from "../Components/GetAPI";
 import HolderForPokeCards from "../Components/HolderForPokeCards";
 import {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
+import PokemonDetails from "../Components/PokemonDetails";
 
 export default function Pokedex() {
     const [variable, setVariable] = useState([])
     const [state, setState] = useState("Loading")
+    const [focusedPokemon, setFocusedPokemon] = useState("")
+
+    function getIdClicked(props){
+        //setFocusedPokemon(props.id)
+        console.log(props)
+    }
 
     //Load page of pokemon
     const [a, setA] = useState(0)
@@ -15,10 +22,11 @@ export default function Pokedex() {
                 setVariable(result)})
                 .then(()=>{
                     wait(2000)
-                .then(() =>setState("loaded") )
-
+                .then(() =>setState("loaded"))
+                        //.then(()=>{setFocusedPokemon(variable[0])}).then(()=>(console.log(variable)))
                 })
-    },[a])
+        console.log(focusedPokemon)
+    },[a, focusedPokemon])
     console.log(variable)
 
     if(state === "Loading")
@@ -34,7 +42,8 @@ export default function Pokedex() {
         <div>
             <h1>WELCOME TRAINER!</h1>
             <p>Here you will be able to look at all the pokemon!</p>
-            <HolderForPokeCards props = {variable}/>
+            <HolderForPokeCards props = {variable} onClick={getIdClicked} />
+            <PokemonDetails props = {variable}/>
             <button id = "button" onClick={()=>{setA(a>1 ? a-1 : 0)}}>ButtonPrevious</button>
             <button id = "button3" onClick={()=>{setA(a+1)}}>ButtonNext</button>
         </div>

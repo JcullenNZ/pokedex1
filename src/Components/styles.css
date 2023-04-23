@@ -1,0 +1,7 @@
+.listOfPokemon {
+    display: flex;
+}
+
+.pokemonDetail {
+    display: flex;
+}
