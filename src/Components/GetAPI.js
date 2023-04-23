@@ -3,6 +3,9 @@ async function GetAPI(props) {
     let newArray = [];
     let pokeObjArray = [];
 
+
+    const officialArt =
+
     returningResponse = await fetch(props)
     let v = await returningResponse.json()
 
@@ -22,9 +25,10 @@ async function GetAPI(props) {
                 types: pokemon.types,
                 weight: pokemon.weight,
                 stats: pokemon.stats,
-                official_artwork: pokemon.official_artwork
+                official_artwork: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pokemon.id + ".png"
             })
     }
+    console.log("HERE!!!!",pokeObjArray)
 
 
 

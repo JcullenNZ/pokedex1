@@ -1,4 +1,4 @@
-import "./styles.css"
+
 
 function PokemonDetails({props}){
     if (props.stats === undefined) {
@@ -10,7 +10,7 @@ function PokemonDetails({props}){
 
     return (
         <div className = "pokemonDetail">
-            <img src = {props.src}/>
+            <img src = {props.official_artwork}/>
             <div>#{props.id}    {props.name}</div>
             <div>health: {props.stats[0].base_stat}</div>
             <div>attack: {props.stats[1].base_stat}</div>
