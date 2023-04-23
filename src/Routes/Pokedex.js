@@ -10,7 +10,7 @@ export default function Pokedex() {
     const [focusedPokemon, setFocusedPokemon] = useState("")
 
     function getIdClicked(props){
-        setFocusedPokemon(props)
+        setFocusedPokemon((props===focusedPokemon ? null : props))
         console.log(props)
     }
 
